@@ -1,0 +1,166 @@
+
+  <!--begin::Contacts-->
+  <div class="card card-flush h-lg-100" id="kt_contacts_main">
+    <!--begin::Card header-->
+    <div class="card-header pt-7" id="kt_chat_contacts_header">
+      <!--begin::Card title-->
+      <div class="card-title">
+        <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
+        <span class="svg-icon svg-icon-1 me-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M20 14H18V10H20C20.6 10 21 10.4 21 11V13C21 13.6 20.6 14 20 14ZM21 19V17C21 16.4 20.6 16 20 16H18V20H20C20.6 20 21 19.6 21 19ZM21 7V5C21 4.4 20.6 4 20 4H18V8H20C20.6 8 21 7.6 21 7Z" fill="black" />
+            <path opacity="0.3" d="M17 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H17C17.6 2 18 2.4 18 3V21C18 21.6 17.6 22 17 22ZM10 7C8.9 7 8 7.9 8 9C8 10.1 8.9 11 10 11C11.1 11 12 10.1 12 9C12 7.9 11.1 7 10 7ZM13.3 16C14 16 14.5 15.3 14.3 14.7C13.7 13.2 12 12 10.1 12C8.10001 12 6.49999 13.1 5.89999 14.7C5.59999 15.3 6.19999 16 7.39999 16H13.3Z" fill="black" />
+          </svg>
+        </span>
+        <!--end::Svg Icon-->
+        <h2>Contact Details</h2>
+      </div>
+      <!--end::Card title-->
+      <!--begin::Card toolbar-->
+      <div class="card-toolbar gap-3">
+
+      </div>
+      <!--end::Card toolbar-->
+    </div>
+    <!--end::Card header-->
+    <!--begin::Card body-->
+    <div class="card-body pt-5">
+      <!--begin::Profile-->
+      <div class="d-flex gap-7 align-items-center">
+        <!--begin::Avatar-->
+        <div class="symbol symbol-circle symbol-100px label">
+          <h1>{{editData.NOM[0]}}</h1>
+        </div>
+        <!--end::Avatar-->
+        <!--begin::Contact details-->
+        <div class="d-flex flex-column gap-2">
+          <!--begin::Name-->
+          <h3 class="mb-0">{{editData.NOM}}</h3>
+          <!--end::Name-->
+          <!--begin::Email-->
+          <div class="d-flex align-items-center gap-2">
+            <!--begin::Svg Icon | path: icons/duotune/communication/com011.svg-->
+            <span class="svg-icon svg-icon-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path opacity="0.3" d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19Z" fill="black" />
+                <path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z" fill="black" />
+              </svg>
+            </span>
+            <!--end::Svg Icon-->
+            <a href="#" class="text-muted text-hover-primary">{{editData.EMAIL}}</a>
+          </div>
+          <!--end::Email-->
+          <!--begin::Phone-->
+          <div class="d-flex align-items-center gap-2">
+            <!--begin::Svg Icon | path: icons/duotune/electronics/elc003.svg-->
+            <span class="svg-icon svg-icon-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 20H19V21C19 21.6 18.6 22 18 22H6C5.4 22 5 21.6 5 21V20ZM19 3C19 2.4 18.6 2 18 2H6C5.4 2 5 2.4 5 3V4H19V3Z" fill="black" />
+                <path opacity="0.3" d="M19 4H5V20H19V4Z" fill="black" />
+              </svg>
+            </span>
+            <!--end::Svg Icon-->
+            <a href="#" class="text-muted text-hover-primary">{{editData.TEL}}</a>
+          </div>
+          <!--end::Phone-->
+        </div>
+        <!--end::Contact details-->
+      </div>
+      <!--end::Profile-->
+      <!--begin:::Tabs-->
+      <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x fs-6 fw-bold mt-6 mb-8">
+        <!--begin:::Tab item-->
+        <li class="nav-item">
+          <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_contact_view_general">
+          <!--begin::Svg Icon | path: icons/duotune/general/gen001.svg-->
+          <span class="svg-icon svg-icon-4 me-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M11 2.375L2 9.575V20.575C2 21.175 2.4 21.575 3 21.575H9C9.6 21.575 10 21.175 10 20.575V14.575C10 13.975 10.4 13.575 11 13.575H13C13.6 13.575 14 13.975 14 14.575V20.575C14 21.175 14.4 21.575 15 21.575H21C21.6 21.575 22 21.175 22 20.575V9.575L13 2.375C12.4 1.875 11.6 1.875 11 2.375Z" fill="black" />
+            </svg>
+          </span>
+          <!--end::Svg Icon-->General</a>
+        </li>
+
+      </ul>
+      <!--end:::Tabs-->
+      <!--begin::Tab content-->
+      <div class="tab-content" id="">
+        <!--begin:::Tab pane-->
+        <div class="tab-pane fade show active" style="    display: flex;
+        justify-content: space-around;" id="kt_contact_view_general" role="tabpanel">
+          <!--begin::Additional details-->
+          <div class="d-flex flex-column gap-5 mt-7 flex-row" >
+            <!--begin::Company name-->
+            <div class="d-flex flex-column gap-1">
+              <div class="fw-bolder text-muted">Tiers</div>
+              <div class="fw-bolder fs-5">{{editData.TIERS}}</div>
+            </div>
+            <!--end::Company name-->
+            <!--begin::City-->
+            <div class="d-flex flex-column gap-1">
+              <div class="fw-bolder text-muted">Nom</div>
+              <div class="fw-bolder fs-5">{{editData.NOM}}</div>
+            </div>
+            <!--end::City-->
+            <!--begin::Country-->
+            <div class="d-flex flex-column gap-1">
+              <div class="fw-bolder text-muted">Country</div>
+              <div class="fw-bolder fs-5">{{editData.PAY}}</div>
+            </div>
+            <!--end::Country-->
+            <!--begin::Notes-->
+            <div class="d-flex flex-column gap-1">
+              <div class="fw-bolder text-muted">Notes</div>
+              <div class="fw-bolder fs-5">{{editData.VIL}}</div>
+
+            </div>
+            <!--end::Notes-->
+          </div>
+          <div class="d-flex flex-column gap-5 mt-7">
+            <!--begin::Company name-->
+            <div class="d-flex flex-column gap-1">
+              <div class="fw-bolder text-muted">Code postal</div>
+              <div class="fw-bolder fs-5">{{editData.CPOSTAL}}</div>
+            </div>
+            <!--end::Company name-->
+            <!--begin::City-->
+            <div class="d-flex flex-column gap-1">
+              <div class="fw-bolder text-muted">Web</div>
+              <div class="fw-bolder fs-5">{{editData.web}}</div>
+            </div>
+            <!--end::City-->
+            <!--begin::Country-->
+            <div class="d-flex flex-column gap-1">
+              <div class="fw-bolder text-muted">Rue</div>
+              <div class="fw-bolder fs-5">{{editData.RUE}}</div>
+            </div>
+            <!--end::Country-->
+            <!--begin::Notes-->
+            <div class="d-flex flex-column gap-1">
+              <div class="fw-bolder text-muted">Notes</div>
+              <div class="fw-bolder fs-5">{{editData.VIL}}</div>
+
+            </div>
+            <!--end::Notes-->
+          </div>
+          <!--end::Additional details-->
+        </div>
+
+
+      </div>
+      <!--end::Tab content-->
+    </div>
+    <div class="d-flex justify-content-end">
+      <!--begin::Button-->
+      <button type="submit" id="kt_ecommerce_customer_profile_submit" class="btn btn-light-primary">
+        <span class="indicator-label" mat-raised-button  mat-dialog-close>Fermer</span>
+        <span class="indicator-progress">Please wait...
+        <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+      </button>
+      <!--end::Button-->
+    </div>
+    <!--end::Card body-->
+  </div>
+  <!--end::Contacts-->
+
+<!--end::Content-->

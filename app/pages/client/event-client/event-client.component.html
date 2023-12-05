@@ -1,0 +1,337 @@
+
+
+
+
+      	<!--begin::Layout-->
+        <div class="d-flex flex-column flex-xl-row" >
+          <!--begin::Sidebar-->
+          <div class="flex-column flex-lg-row-auto w-100 w-xl-350px mb-10">
+            <!--begin::Card-->
+            <div class="card mb-5 mb-xl-8">
+              <!--begin::Card body-->
+              <div class="card-body pt-15">
+                <!--begin::Summary-->
+                <div class="d-flex flex-center flex-column mb-5">
+                  <!--begin::Avatar-->
+                  <div class="symbol symbol-150px symbol-circle mb-7">
+                  </div>
+                  <!--end::Avatar-->
+                  <!--begin::Name-->
+                  <a  class="fs-3 text-gray-800 text-hover-primary fw-bolder mb-1">{{client.NOM}}</a>
+                  <!--end::Name-->
+                  <!--begin::Email-->
+                  <a  class="fs-5 fw-bold text-muted text-hover-primary mb-6">{{client.EMAIL}}</a>
+                  <!--end::Email-->
+                </div>
+                <!--end::Summary-->
+                <!--begin::Details toggle-->
+                <div class="d-flex flex-stack fs-4 py-3">
+                  <div class="fw-bolder">Details</div>
+                  <!--begin::Badge-->
+                  <div class="badge badge-light-info d-inline">client</div>
+                  <!--begin::Badge-->
+                </div>
+                <!--end::Details toggle-->
+                <div class="separator separator-dashed my-3"></div>
+                <!--begin::Details content-->
+                <div class="pb-5 fs-6">
+                  <!--begin::Details item-->
+                  <div class="fw-bolder mt-5">Tiers</div>
+                  <div class="text-gray-600">{{client.TIERS}}</div>
+                  <!--begin::Details item-->
+                  <!--begin::Details item-->
+                  <div class="fw-bolder mt-5">DOS </div>
+                  <div class="text-gray-600">
+                    <a href="#" class="text-gray-600 text-hover-primary">{{client.DOS}}</a>
+                  </div>
+                  <!--begin::Details item-->
+                  <!--begin::Details item-->
+                  <div class="fw-bolder mt-5">Telephone</div>
+                  <div class="text-gray-600">{{client.TEL}}</div>
+                  <!--begin::Details item-->
+                  <!--begin::Details item-->
+                  <div class="fw-bolder mt-5">Ville</div>
+                  <div class="text-gray-600">{{client.VIL}}</div>
+                  <!--begin::Details item-->
+                  <!--begin::Details item-->
+                  <div class="fw-bolder mt-5">Code postal</div>
+                  <div class="text-gray-600">
+                    <a  class="text-gray-600 text-hover-primary">{{client.CPOSTAL}}</a>
+                  </div>
+                  <!--begin::Details item-->
+                </div>
+                <!--end::Details content-->
+              </div>
+              <!--end::Card body-->
+            </div>
+            <!--end::Card-->
+          </div>
+          <!--end::Sidebar-->
+          <!--begin::Content-->
+          <div class="flex-lg-row-fluid ms-lg-15">
+            <!--begin:::Tabs-->
+            <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-bold mb-8">
+              <!--begin:::Tab item-->
+              <li class="nav-item">
+                <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_ecommerce_customer_overview">Overview</a>
+              </li>
+              <!--end:::Tab item-->
+              <!--begin:::Tab item-->
+              <li class="nav-item">
+                <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_ecommerce_customer_general">Ajouter Evenement </a>
+              </li>
+
+              <li class="nav-item" >
+                <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" [routerLink]="['/client']">Fermer </a>
+              </li>
+              <!--end:::Tab item-->
+
+            </ul>
+            <!--end:::Tabs-->
+            <!--begin:::Tab content-->
+            <div class="tab-content" id="myTabContent">
+              <!--begin:::Tab pane-->
+              <div class="tab-pane fade show active" id="kt_ecommerce_customer_overview" role="tabpanel">
+
+                <div style="margin-top: 10px">
+                  <mat-form-field appearance="standard">
+                    <mat-label >Filter</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+                  </mat-form-field>
+
+                  <div class="mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource" matSort class="tablestyle">
+
+                      <!-- ID Column -->
+            <ng-container matColumnDef="eventId">
+              <th  mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
+              <td mat-cell *matCellDef="let row"> {{row.NOM}} </td>
+            </ng-container>
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="eventTitle">
+              <th  mat-header-cell *matHeaderCellDef mat-sort-header> Desription  </th>
+              <td mat-cell *matCellDef="let row"> {{row.LIB80}} </td>
+            </ng-container>
+
+            <!-- Progress Column -->
+            <ng-container matColumnDef="eventDescription">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Titre d'Evenement </th>
+              <td mat-cell *matCellDef="let row"> {{row.EVENEMENT}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="startDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Debut</th>
+              <td mat-cell *matCellDef="let row"> {{row.EVTDT | date}} </td>
+            </ng-container>
+            <ng-container matColumnDef="endDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Fin </th>
+              <td mat-cell *matCellDef="let row"> {{row.EVTFINDH | date}} </td>
+            </ng-container>
+                      <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                        <td mat-cell *matCellDef="let row">
+                            <button (click)="openDetails(row)" mat-icon-button color="primary"  title="Detail événement ">
+                              <span> </span>
+                              <span class="svg-icon svg-icon-primary svg-icon-2x"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M21.7 18.9L18.6 15.8C17.9 16.9 16.9 17.9 15.8 18.6L18.9 21.7C19.3 22.1 19.9 22.1 20.3 21.7L21.7 20.3C22.1 19.9 22.1 19.3 21.7 18.9Z" fill="currentColor"/>
+                                <path opacity="0.3" d="M11 20C6 20 2 16 2 11C2 6 6 2 11 2C16 2 20 6 20 11C20 16 16 20 11 20ZM11 4C7.1 4 4 7.1 4 11C4 14.9 7.1 18 11 18C14.9 18 18 14.9 18 11C18 7.1 14.9 4 11 4ZM8 11C8 9.3 9.3 8 11 8C11.6 8 12 7.6 12 7C12 6.4 11.6 6 11 6C8.2 6 6 8.2 6 11C6 11.6 6.4 12 7 12C7.6 12 8 11.6 8 11Z" fill="currentColor"/>
+                                </svg></span>
+                            </button>
+
+                        </td>
+                      </ng-container>
+
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                      <!-- Row shown when there is no matching data. -->
+                      <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                      </tr>
+                    </table>
+
+                    <mat-paginator style="background-color: white;"  [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users" ></mat-paginator>
+                  </div>
+
+                 </div>
+
+
+                <!--end::Card-->
+              </div>
+
+              <!--end:::Tab pane-->
+              <!--begin:::Tab pane-->
+              <div class="tab-pane fade" id="kt_ecommerce_customer_general" role="tabpanel">
+                <!--begin::Card-->
+                <div class="card pt-4 mb-6 mb-xl-9">
+                  <!--begin::Card header-->
+                  <br><br>
+                  <!--end::Card header-->
+                  <!--begin::Card body-->
+                  <div class="card-body pt-0 pb-5">
+                    <!--begin::Form-->
+
+                    <form  class="form" [formGroup]="eventForm" >
+                      <br><br>
+                       <!--begin::Input group-->
+                       <div class="row g-9 mb-8">
+                         <div class="col-md-6 fv-row">
+                           <div class="row g-9 mb-8">
+                             <div class="d-flex flex-column mb-8 col-md-6 fv-row">
+                               <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                 <span class="required">Evenement user</span>
+                                 <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i>
+                               </label>
+                               <!--end::Label-->
+                               <input formControlName="EVTUSER" type="text" class="form-control form-control-solid" placeholder="Enter Evenement user" name="target_title" />
+                             </div>
+                             <div class="d-flex flex-column mb-8 col-md-6 fv-row">
+                               <!--begin::Label-->
+                               <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                 <span class="required">ETB</span>
+                                 <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i>
+                               </label>
+                               <!--end::Label-->
+                               <select formControlName="ETB" class="form-select form-select-solid"  data-control="select2" data-hide-search="true" data-placeholder="Select a Team Member" name="target_assign">
+                                 <option selected [disabled]="true" >Selectionnez tiers</option>
+                                 <option  *ngFor="let item of etb" value="{{item.ETB}}">{{item.NOM}}</option>
+
+
+                               </select>
+
+                             </div>
+                           </div>
+
+
+                           <div class="d-flex flex-column mb-8 fv-row">
+                             <!--begin::Label-->
+                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                               <span class="required">Titre Evenement</span>
+                               <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i>
+                             </label>
+                             <!--end::Label-->
+                             <input formControlName="EVENEMENT" type="text" class="form-control form-control-solid" placeholder="Enter Titre Evenement" name="target_title" />
+                           </div>
+
+                           <div class="d-flex flex-column mb-8 fv-row">
+                             <!--begin::Label-->
+                             <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                               <span class="required">Contact</span>
+                               <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i>
+                             </label>
+                             <!--end::Label-->
+                             <input formControlName="CONTACT" type="text" class="form-control form-control-solid" placeholder="Enter Contact" name="target_title" />
+                           </div>
+                           <!--end::Input group-->
+
+
+                           <!--begin::Input group-->
+                         </div>
+                         <div class="col-md-6 fv-row">
+
+                           <!--begin::Input group-->
+                           <div class="row g-9 mb-8">
+                             <!--begin::Col-->
+                             <div class="col-md-6 fv-row" >
+                               <label class="required fs-6 fw-bold mb-2" >Date debut</label>
+                               <!--begin::Input-->
+                               <div >
+                                 <mat-form-field  style="width: 95%;" >
+                                   <mat-label>Date</mat-label>
+                                   <input formControlName="EVTDT"  matInput [matDatepicker]="picker">
+                                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                   <mat-datepicker #picker></mat-datepicker>
+                                 </mat-form-field>
+                               </div>
+                               <div>
+                               </div>
+                               <!--end::Input-->
+                             </div>
+                             <!--end::Col-->
+                             <!--begin::Col-->
+                             <div class="col-md-6 fv-row">
+                               <label class="required fs-6 fw-bold mb-2">Date fin</label>
+                               <!--begin::Input-->
+                               <div class="position-relative d-flex align-items-center">
+                                 <mat-form-field style="width: 95%;" >
+                                   <mat-label>Date</mat-label>
+                                   <input formControlName="EVTFINDH" matInput [matDatepicker]="picker1">
+                                   <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                   <mat-datepicker #picker1></mat-datepicker>
+                                 </mat-form-field>
+
+                               </div>
+                               <div>
+                               </div>
+                               <!--end::Input-->
+                             </div>
+                             <!--end::Col-->
+                           </div>
+                           <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="d-flex flex-column mb-8">
+                             <label class="fs-6 fw-bold mb-2">Description</label>
+                             <textarea formControlName="LIB80" class="form-control form-control-solid" rows="1.3" name="target_details" placeholder="Description"></textarea>
+                           </div>
+                           <!--end::Input group-->
+                           <div class="row g-9 mb-8">
+                             <div class="col-md-6 fv-row">
+                               <label class="required fs-6 fw-bold mb-2">Rendez-vous</label>
+                               <select formControlName="RDVOK" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Team Member" name="target_assign">
+                                <option selected [disabled]="true" value="">Rendez-vous</option> 
+                                <option value="1">Rendez-vous à confirmer</option>
+                                 <option value="2">Rendez-vous confirmé</option>
+                                 <option value="3">Pas de rendez-vous</option>
+
+                               </select>
+                             </div>
+                             <div class="col-md-6 fv-row">
+                               <label class="required fs-6 fw-bold mb-2">Tache</label>
+                               <select formControlName="REALISEOK" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Team Member" name="target_assign">
+                                <option selected [disabled]="true" value="">Tache</option> 
+                                <option value="1">Tache réalisé</option>
+                                 <option value="2">Tache à réaliser</option>
+                                 <option value="3">Pas de tache</option>
+
+                               </select>
+                             </div>
+
+                           </div>
+
+
+                         </div>
+                       </div>
+                       <div class=" d-flex justify-content-end ">
+                         <button
+                           type="button"
+                           class="btn btn-primary"
+                           (click)="addProduct()"
+                         >
+                           Save
+                         </button>
+                       </div>
+
+
+                     </form>
+                    
+                  </div>
+                  <!--end::Card body-->
+                </div>
+                <!--end::Card-->
+
+              </div>
+              <!--end:::Tab pane-->
+
+            </div>
+            <!--end:::Tab content-->
+          </div>
+          <!--end::Content-->
+        </div>
+        <!--end::Layout-->
+
+
+
+
+

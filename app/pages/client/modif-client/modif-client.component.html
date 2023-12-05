@@ -1,0 +1,203 @@
+<!--begin::Card body-->
+
+<div mat-dialog-content style="max-height: 93%" class="card-body pt-5 scroll-y px-10 px-lg-15 pt-0 pb-15" >
+    <!--begin::Form-->
+    <form  class="form"  [formGroup]="clientForm">
+      <!--begin::Input group-->
+      
+      <!--end::Input group-->
+      <!--begin::Input group-->
+      <div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
+        <!--begin::Col-->
+        <div class="col">
+          <div class="fv-row mb-7">
+            <!--begin::Label-->
+            <label class="fs-6 fw-bold form-label mt-3">
+              <span class="required">Telephone</span>
+            </label>
+            <!--end::Label-->
+            <div class="w-100">
+              <!--begin::Select2-->
+              <input formControlName="TEL" type="text" class="form-control form-control-solid"    />
+  
+              <!--end::Select2-->
+            </div>
+          </div>
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col">
+          <!--begin::Input group-->
+          <div class="fv-row mb-7">
+            <!--begin::Label-->
+            <label class="fs-6 fw-bold form-label mt-3">
+              <span class="required">Web</span>
+            </label>
+            <!--end::Label-->
+            <div class="w-100">
+              <!--begin::Select2-->
+              <input formControlName="WEB" type="text" class="form-control form-control-solid"   />
+  
+              <!--end::Select2-->
+            </div>
+          </div>
+          <!--end::Input group-->
+        </div>
+        <!--end::Col-->
+      </div>
+      <!--end::Input group-->
+      <!--begin::Row-->
+      <div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
+        <!--begin::Col-->
+        <div class="col">
+          <!--begin::Input group-->
+          <div class="fv-row mb-7">
+            <!--begin::Label-->
+            <label class="fs-6 fw-bold form-label mt-3">
+              <span class="required">Email</span>
+              <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enter the contact's email."></i>
+            </label>
+            <!--end::Label-->
+            <!--begin::Input-->
+            <input formControlName="EMAIL"  class="form-control form-control-solid" name="email"  />
+            <!--end::Input-->
+          </div>
+          <!--end::Input group-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col">
+          <!--begin::Input group-->
+          <div class="fv-row mb-7">
+            <!--begin::Label-->
+            <label class="fs-6 fw-bold form-label mt-3">
+              <span>Nom</span>
+              <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enter the contact's phone number (optional)."></i>
+            </label>
+            <!--end::Label-->
+            <!--begin::Input-->
+            <input formControlName="NOM" type="text" class="form-control form-control-solid" name="phone"  />
+            <!--end::Input-->
+          </div>
+          <!--end::Input group-->
+        </div>
+        <!--end::Col-->
+      </div>
+      <!--end::Row-->
+      <!--begin::Row-->
+      <div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
+        <!--begin::Col-->
+        <div class="col">
+          <!--begin::Input group-->
+          <div class="fv-row mb-7">
+            <!--begin::Label-->
+            <label class="fs-6 fw-bold form-label mt-3">
+              <span>Adresse cpl</span>
+              <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enter the contact's city of residence (optional)."></i>
+            </label>
+            <!--end::Label-->
+            <!--begin::Input-->
+            <input formControlName="ADRCPL2"type="text" class="form-control form-control-solid"   />
+            <!--end::Input-->
+          </div>
+          <!--end::Input group-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col">
+          <!--begin::Input group-->
+          <div class="fv-row mb-7">
+            <!--begin::Label-->
+            <label class="fs-6 fw-bold form-label mt-3">
+              <span class="required">Rue</span>
+            </label>
+            <!--end::Label-->
+            <div class="w-100">
+              <!--begin::Select2-->
+              <input formControlName="RUE" type="text" class="form-control form-control-solid"   />
+  
+              <!--end::Select2-->
+            </div>
+          </div>
+          <!--end::Input group-->
+        </div>
+        <!--end::Col-->
+      </div>
+      <!--end::Row-->
+      <div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
+        <!--begin::Col-->
+        <div class="col">
+          <!--begin::Input group-->
+          <div class="fv-row mb-7">
+            <!--begin::Label-->
+            <label class="fs-6 fw-bold form-label mt-3">
+              <span>Paye</span>
+              <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enter the contact's city of residence (optional)."></i>
+            </label>
+            <!--end::Label-->
+            <!--begin::Input-->
+            <input formControlName="PAY" type="text" class="form-control form-control-solid"  />
+            <!--end::Input-->
+          </div>
+          <!--end::Input group-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col">
+          <!--begin::Input group-->
+          <div class="fv-row mb-7">
+            <!--begin::Label-->
+            <label class="fs-6 fw-bold form-label mt-3">
+              <span class="required">Ville</span>
+            </label>
+            <!--end::Label-->
+            <div class="w-100">
+              <!--begin::Select2-->
+              <input formControlName="VIL" type="text" class="form-control form-control-solid"    />
+  
+              <!--end::Select2-->
+            </div>
+          </div>
+          <!--end::Input group-->
+        </div>
+        <!--end::Col-->
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
+        <!--begin::Col-->
+        <div class="col">
+          <!--begin::Input group-->
+          <div class="fv-row mb-7">
+            <!--begin::Label-->
+            <label class="fs-6 fw-bold form-label mt-3">
+              <span>Code postale</span>
+              <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enter the contact's city of residence (optional)."></i>
+            </label>
+            <!--end::Label-->
+            <!--begin::Input-->
+            <input formControlName="CPOSTAL" type="text" class="form-control form-control-solid"    />
+            <!--end::Input-->
+          </div>
+          <!--end::Input group-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col">
+          <!--begin::Input group-->
+          
+          <!--end::Input group-->
+        </div>
+        <!--end::Col-->
+      </div>
+      <!--end::Row-->
+  
+  
+  
+    </form>
+    <!--end::Form-->
+  </div>
+  <!--end::Card body-->
+  <div mat-dialog-action [align]="'end'">
+    <button  mat-raised-button  mat-dialog-close  class="indicator-label">Fermer</button>
+   <button (click)="updateProduct()" style="margin-left: 8px;" mat-raised-button  class="indicator-label" >save</button>
+  </div>
+  

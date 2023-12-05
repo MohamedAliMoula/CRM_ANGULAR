@@ -1,0 +1,180 @@
+<div >
+  <!-- begin::Row -->
+  <div  class="row g-5 g-xl-8">
+    <div class="col-xl-3">
+      <app-stats-widget5
+        svgIcon="./assets/media/icons/duotune/general/gen032.svg"
+        class="card bg-white hoverable card-xl-stretch mb-xl-8"
+        color="white"
+        iconColor="primary"
+        title="{{Total.PrixTotal}} DT"
+        description="Chiffre d'affaire"
+      ></app-stats-widget5>
+    </div>
+
+    <div class="col-xl-3">
+      <app-stats-widget5
+        svgIcon="./assets/media/icons/duotune/ecommerce/ecm008.svg"
+        class="card bg-dark hoverable card-xl-stretch mb-xl-8"
+        color="dark"
+        iconColor="white"
+        title={{num?.numb}}
+        description="Clients"
+      ></app-stats-widget5>
+    </div>
+
+    <div class="col-xl-3">
+      <app-stats-widget5
+        svgIcon="./assets/media/icons/duotune/finance/fin006.svg"
+        class="card bg-warning hoverable card-xl-stretch mb-xl-8"
+        color="warning"
+        iconColor="white"
+        title={{pros?.numb}}
+        description="Prospect"
+      ></app-stats-widget5>
+    </div>
+
+    
+  </div>
+  <div  class="row g-5 g-xl-8">
+    <div class="col-xl-4">
+      <app-stats-widget6
+      class="card bg-light-success card-xl-stretch mb-xl-8"
+      color="success"
+      title="Avarage"
+      description="Tache Réaliser"
+      progress="{{rea}}%"
+      ></app-stats-widget6>
+    </div>
+
+    <div class="col-xl-4">
+      <app-stats-widget6
+     class="card bg-light-warning card-xl-stretch mb-xl-8"
+     color="warning"
+     title="Avarage"
+     description="Tache a Réaliser"
+     progress="{{arealise}}%"
+     ></app-stats-widget6>
+    </div>
+
+    <div class="col-xl-4">
+      <app-stats-widget6
+      class="card bg-light-primary card-xl-stretch mb-xl-8"
+      color="primary"
+      title="Avarage"
+      description="Pas de Tache"
+      progress="{{event[2].TaPer}}%"
+      ></app-stats-widget6>
+    </div>
+
+    
+  </div>
+
+  <div class="row ">
+    <div class="col-xl-6">
+      <div class="card-header border-0">
+        <h3 class="card-title fw-bolder text-dark">Evènement</h3>
+        <div class="card-toolbar">
+          <!-- begin::Menu -->
+          <button
+            type="button"
+            class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
+            data-kt-menu-trigger="click"
+            data-kt-menu-placement="bottom-end"
+            data-kt-menu-flip="top-end"
+          >
+            <span
+              class="svg-icon svg-icon-2"
+            ></span>
+          </button>
+          <!-- end::Menu -->
+        </div>
+      </div>
+      <!-- end::Header -->
+      <!-- begin::Body -->
+      <div class="card-body pt-2" style="background-color: white;" *ngFor="let item of eventdate">
+        <!-- begin::Item -->
+        <div class="d-flex align-items-center mb-8">
+          <!-- begin::Bullet -->
+          <span class="bullet bullet-vertical h-40px bg-success"></span>
+          <!-- end::Bullet -->
+          <!-- begin::Checkbox -->
+          <div class="form-check form-check-custom form-check-solid mx-5">
+            <input class="form-check-input" type="checkbox" value="" />
+          </div>
+          <!-- end::Checkbox -->
+          <!-- begin::Description -->
+          <div class="flex-grow-1">
+            <a  class="text-gray-800 text-hover-primary fw-bolder fs-6">
+              {{item.EVENEMENT}}
+            </a>
+            <span class="text-muted fw-bold d-block">{{item.EVTDT |date}}</span>
+          </div>
+          <!-- end::Description -->
+          <span class="badge badge-light-success fs-8 fw-bolder">Aujourd'hui </span>
+        </div>
+        <!-- end:Item -->
+        <!-- begin::Item -->
+        
+        <!-- end:Item -->
+      </div>
+    </div>
+    <div class="col-xl-6">
+      <app-mixed-widget11
+        class="card card-xxl-stretch-50 mb-5 mb-xl-8"
+        chartColor="primary"
+        chartHeight="230px"
+      ></app-mixed-widget11>
+     
+      
+    </div>
+  </div>
+  <!-- end::Row -->
+
+  <!-- begin::Row -->
+  <!-- <div class="row gy-5 gx-xl-8">
+    <div class="col-xxl-4">
+      <app-lists-widget3
+        class="card card-xxl-stretch mb-xl-3"
+      ></app-lists-widget3>
+    </div>
+    <div class="col-xl-8">
+      <app-tables-widget10
+        class="card card-xxl-stretch mb-5 mb-xl-8"
+      ></app-tables-widget10>
+    </div>
+  </div> -->
+  <!-- end::Row -->
+
+  <!-- begin::Row -->
+  <!-- <div class="row gy-5 g-xl-8">
+    <div class="col-xl-4">
+      <app-lists-widget2 class="card card-xl-stretch mb-xl-8"></app-lists-widget2>
+    </div>
+    <div class="col-xl-4">
+      <app-lists-widget6 class="card card-xl-stretch mb-xl-8"></app-lists-widget6>
+    </div>
+    <div class="col-xl-4">
+      <app-lists-widget4
+        class="card card-xl-stretch mb-5 mb-xl-8"
+      ></app-lists-widget4>
+    </div>
+  </div> -->
+  <!-- end::Row -->
+
+  <!-- <div class="row g-5 gx-xxl-8">
+    <div class="col-xxl-4">
+      <app-mixed-widget8
+        class="card card-xxl-stretch mb-xl-3"
+        chartColor="success"
+        chartHeight="150px"
+      ></app-mixed-widget8>
+    </div>
+    <div class="col-xxl-8">
+      <app-tables-widget5
+        class="card card-xxl-stretch mb-5 mb-xxl-8"
+      ></app-tables-widget5>
+    </div>
+  </div> -->
+
+</div>

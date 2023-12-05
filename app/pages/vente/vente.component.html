@@ -1,0 +1,251 @@
+
+<!--begin::Tables Widget 12-->
+<div class="card mb-5 mb-xl-8" style="margin-left: 1.5rem;">
+  <!--begin::Header-->
+
+  <div>
+    <form class="example-form">
+      <div style="display: flex;
+      justify-items: center;
+      justify-content: space-between;padding: 30px;" >
+        <div class=" fv-row">
+          <mat-form-field  >
+            <mat-label>Client</mat-label>
+            <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <mat-option *ngFor="let option of filteredCli | async" [value]="option">
+                {{option.NOM}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+        <div class="fv-row">
+          <mat-form-field >
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+
+  </form>
+
+    <div class="card-toolbar">
+
+
+      <!--begin::Menu-->
+
+
+      <!--end::Menu 2-->
+      <!--end::Menu-->
+    </div>
+  </div>
+
+  <div >
+      <form [formGroup]="aricleform">
+        <div style="display: flex;
+        justify-items: center;
+        justify-content: space-between;
+        padding-left: 30px;
+         padding-right: 30px;">
+          <div class=" fv-row">
+            <mat-form-field >
+              <input   type="text" placeholder="Article" matInput [formControl]="Control" [matAutocomplete]="auto1">
+              <mat-autocomplete #auto1="matAutocomplete" [displayWith]="dispaly">
+                <mat-option *ngFor="let opt of filteredArt | async" [value]="opt">
+                  {{opt.DES}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+          <div class=" fv-row">
+            <a class="form-control form-control-lg form-control-solid">
+              {{Control.value?.PRIX }}DT
+
+            </a>
+          </div>
+          <div class=" fv-row">
+            <input
+              type="number"
+              class="form-control form-control-lg form-control-solid"
+              placeholder="Quantité"
+              formControlName="qte"
+
+            />
+          </div>
+          <div class=" fv-row">
+            <input
+              type="number"
+              class="form-control form-control-lg form-control-solid"
+              placeholder="Remise"
+              formControlName="remise"
+
+            />
+          </div>
+          <div class="fv-row">
+            <button
+              type="button"
+              style="margin-right:2rem ;"
+              class="btn btn-primary"
+              (click)=" reset()"
+            >
+              Annuler
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="addItem()"
+            >
+             Ajouter
+            </button>
+          </div>
+        </div>
+      </form>
+  </div>
+  <div class="card-body py-3">
+    <!-- begin::Table container -->
+    <div class="table-responsive">
+      <!-- begin::Table -->
+      <table
+        class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4"
+      >
+        <!-- begin::Table head -->
+        <thead>
+          <tr class="fw-bolder text-muted">
+            <th class="w-25px">
+              <div
+                class="
+                  form-check form-check-sm form-check-custom form-check-solid
+                "
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="1"
+                  data-kt-check="true"
+                  data-kt-check-target=".widget-9-check"
+                />
+              </div>
+            </th>
+            <th class="min-w-100px">Article</th>
+            <th class="min-w-140px">Prix</th>
+            <th class="min-w-120px">Quantite</th>
+            <th class="min-w-120px">Remise</th>
+            <th class="min-w-120px">Total</th>
+            <th class="min-w-100px text-end">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr  *ngFor="let item of listData">
+            <td>
+              <div
+                class="
+                  form-check form-check-sm form-check-custom form-check-solid
+                "
+              >
+                <input
+                  class="form-check-input widget-9-check"
+                  type="checkbox"
+                  value="1"
+                />
+              </div>
+            </td>
+            <td>
+              <a
+                class="text-dark fw-bolder text-hover-primary d-block fs-6"
+              >
+              {{item.Article}}
+              </a>
+
+            </td>
+            <td>
+              <a
+                class="text-dark fw-bolder text-hover-primary d-block fs-6"
+              >
+              {{item.Prix}}
+            </a>DT
+
+            </td>
+            <td>
+              <a
+                class="text-dark fw-bolder text-hover-primary d-block fs-6"
+              >
+              {{item.Quantite}}
+              </a>
+
+            </td>
+            <td>
+              <a
+                class="text-dark fw-bolder text-hover-primary d-block fs-6"
+              >
+              {{item.Remise}}
+              </a>
+
+            </td>
+            <td>
+              <a
+                class="text-dark fw-bolder text-hover-primary d-block fs-6"
+              >
+              {{item.Prix*item.Quantite}}
+              </a>
+
+            </td>
+            <td>
+              <div class="d-flex justify-content-end flex-shrink-0">
+
+                <a
+
+                  class="
+                    btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                  "
+                  (click)="remove(item)"
+                >
+                  <span
+
+                    [inlineSVG]="
+                      './assets/media/icons/duotune/general/gen027.svg'
+                    "
+                    class="svg-icon svg-icon-3"
+                  ></span>
+                </a>
+              </div>
+            </td>
+          </tr>
+          <tr class="align-top fw-bolder text-gray-700">
+            <th></th>
+            <th colspan="2" class="fs-4 ps-0">Total</th>
+            <th colspan="2" class="text-end fs-4 text-nowrap">
+            <span data-kt-element="grand-total">{{this.total.toFixed(2)}}</span>  DT</th>
+          </tr>
+        </tbody>
+        <!-- end::Table body -->
+      </table>
+      <div class="card-footer d-flex justify-content-end py-6 px-9">
+        <button
+        style="margin-right:5px ;"
+          type="button"
+          class="btn btn-primary"
+          (click)="savedevis()"
+        >
+         Save
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+        >
+         Annuler
+        </button>
+      </div>
+      <!-- end::Table -->
+    </div>
+    <!-- end::Table container -->
+  </div>
+  <!--begin::Body-->
+</div>
+<!--end::Tables Widget 12-->
+

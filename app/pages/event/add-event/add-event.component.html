@@ -1,0 +1,177 @@
+<div  class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15" style="background-color: white;">
+ 
+  
+    
+
+    <form  class="form" [formGroup]="eventForm" >
+      <!--begin::Heading-->
+      <div class="mb-13 text-center">
+       
+  
+      </div>
+      <!--end::Heading-->
+      <!--begin::Input group-->
+      <div class="row g-9 mb-8">
+        <div class="col-md-6 fv-row">
+          <div class="row g-9 mb-8">
+            <div class="d-flex flex-column mb-8 col-md-6 fv-row">
+                <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+  
+                    <span class="required">Client</span>
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i>
+                  </label>
+                  <select formControlName="TIERSINDIVIDU" class="form-select form-select-solid"  data-control="select2" data-hide-search="true" data-placeholder="Select a Team Member" name="target_assign">
+                    <option selected [disabled]="true" value="">Selectionnez Client</option>
+                    <option  *ngFor="let item of cli" value="{{item.TIERS}}">{{item.NOM}}</option>
+                
+                  </select>
+                </div>
+            
+            <div class="d-flex flex-column mb-8 col-md-6 fv-row">
+              <!--begin::Label-->
+              <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                <span class="required">Établissement</span>
+                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i>
+              </label>
+              <!--end::Label-->
+              <select formControlName="ETB" class="form-select form-select-solid"  data-control="select2" data-hide-search="true" data-placeholder="Select a Team Member" name="target_assign">
+                <option selected [disabled]="true" value="" >Selectionnez Établissement</option>
+                <option  *ngFor="let item of etb" value="{{item.ETB}}">{{item.NOM}}</option>
+  
+  
+              </select>
+  
+            </div>
+          </div>
+  
+  
+          <div class="d-flex flex-column mb-8 fv-row">
+            <!--begin::Label-->
+            <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+              <span class="required">Titre Evenement</span>
+              <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i>
+            </label>
+            <!--end::Label-->
+            <input formControlName="EVENEMENT" type="text" class="form-control form-control-solid" placeholder="Enter Titre Evenement" name="target_title" />
+          </div>
+          
+          <div class="d-flex flex-column mb-8 fv-row">
+            <!--begin::Label-->
+            <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+              <span class="required">Contact</span>
+              <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i>
+            </label>
+            <!--end::Label-->
+            <input formControlName="CONTACT" type="text" class="form-control form-control-solid" placeholder="Enter Contact" name="target_title" />
+          </div>
+          <!--end::Input group-->
+  
+  
+          <!--begin::Input group-->
+        </div>
+        <div class="col-md-6 fv-row">
+          <div class="d-flex flex-column mb-8 fv-row">
+            <!--begin::Label-->
+            <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+              <span class="required">Evenement user</span>
+              <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i>
+            </label>
+            <!--end::Label-->
+            <input formControlName="EVTUSER" type="text" class="form-control form-control-solid" placeholder="Enter Evenement user" name="target_title" />
+          </div>
+          <!--begin::Input group-->
+          <div class="row g-9 mb-8">
+            <!--begin::Col-->
+            <div class="col-md-6 fv-row" >
+              <label class="required fs-6 fw-bold mb-2" >Date debut</label>
+              <!--begin::Input-->
+              <div >
+                <mat-form-field  style="width: 95%;" appearance="fill">
+                  <mat-label>Date</mat-label>
+                  <input formControlName="EVTDT"  matInput [matDatepicker]="picker">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div>
+              </div>
+              <!--end::Input-->
+            </div>
+            <!--end::Col-->
+            <!--begin::Col-->
+            <div class="col-md-6 fv-row">
+              <label class="required fs-6 fw-bold mb-2">Date fin</label>
+              <!--begin::Input-->
+              <div class="position-relative d-flex align-items-center">
+                <mat-form-field style="width: 95%;" appearance="fill">
+                  <mat-label>Date</mat-label>
+                  <input formControlName="EVTFINDH" matInput [matDatepicker]="picker1">
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+  
+              </div>
+              <div>
+              </div>
+              <!--end::Input-->
+            </div>
+            <!--end::Col-->
+          </div>
+          <!--end::Input group-->
+           <!--begin::Input group-->
+           <div class="d-flex flex-column mb-8">
+            <label class="fs-6 fw-bold mb-2">Description</label>
+            <textarea formControlName="LIB80" class="form-control form-control-solid" rows="1.3" name="target_details" placeholder="Description"></textarea>
+          </div>
+          <!--end::Input group-->
+          <div class="row g-9 mb-8">
+            <div class="col-md-6 fv-row">
+              <label class="required fs-6 fw-bold mb-2">Rendez-vous</label>
+              <select formControlName="RDVOK" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Team Member" name="target_assign">
+                <option selected [disabled]="true" value="">Rendez-vous</option>
+                <option value="1">Rendez-vous à confirmer</option>
+                <option value="2">Rendez-vous confirmé</option>
+                <option value="3">Pas de rendez-vous</option>
+  
+              </select>
+            </div>
+            <div class="col-md-6 fv-row">
+              <label class="required fs-6 fw-bold mb-2">Tache</label>
+              <select formControlName="REALISEOK" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Team Member" name="target_assign">
+                <option selected [disabled]="true" value="">Tache</option>
+                <option value="1">Tache réaliser</option>
+                <option value="2">Tache à réaliser</option>
+                <option value="3">Pas de tache</option>
+  
+              </select>
+            </div>
+  
+          </div>
+  
+  
+        </div>
+      </div>
+      <div class="card-footer d-flex justify-content-end py-6 px-9">
+        <button
+          type="button"
+          style="margin-right:2rem ;"
+          class="btn btn-primary"
+          (click)="reset()"
+        >
+          Annuler
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addEvent()"
+        >
+        Sauvegarder
+        </button>
+
+      </div>
+  
+  
+    </form>
+  
+    <!--end:Form-->
+  </div>
